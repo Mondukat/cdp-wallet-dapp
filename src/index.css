@@ -1,0 +1,113 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #080b0f;
+  --bg2:      #0d1117;
+  --bg3:      #111820;
+  --border:   #1e2d3d;
+  --border2:  #243447;
+  --text:     #c9d1d9;
+  --muted:    #4a6079;
+  --accent:   #00e5ff;
+  --accent2:  #0052ff;
+  --green:    #00ff88;
+  --red:      #ff3366;
+  --yellow:   #ffcc00;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-head: 'Orbitron', monospace;
+  --font-body: 'Space Mono', monospace;
+  --radius:   4px;
+  --glow:     0 0 12px rgba(0, 229, 255, 0.25);
+  --glow2:    0 0 24px rgba(0, 229, 255, 0.15);
+}
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 229, 255, 0.012) 2px,
+      rgba(0, 229, 255, 0.012) 4px
+    );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#root { min-height: 100vh; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+* { scrollbar-width: thin; scrollbar-color: var(--border2) var(--bg2); }
+
+button {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  border: none;
+  outline: none;
+  background: none;
+  transition: all 0.15s ease;
+}
+
+input, textarea {
+  font-family: var(--font-mono);
+  outline: none;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 12px;
+  transition: border-color 0.15s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: var(--glow);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: var(--border); }
+  50% { border-color: var(--accent); box-shadow: var(--glow); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-in { animation: fadeIn 0.3s ease forwards; }
