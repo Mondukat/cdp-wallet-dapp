@@ -4,6 +4,7 @@ import WalletsTab from './components/WalletsTab'
 import SendTab from './components/SendTab'
 import ActivityTab from './components/ActivityTab'
 import EOAGenTab from './components/EOAGenTab'
+import CDPDashboard from './components/CDPDashboard'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('WALLETS')
@@ -12,11 +13,12 @@ export default function App() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <main style={{ flex: 1, padding: '20px', maxWidth: '900px', width: '100%', margin: '0 auto' }}>
-        {activeTab === 'WALLETS'  && <WalletsTab />}
-        {activeTab === 'SEND'     && <SendTab />}
-        {activeTab === 'ACTIVITY' && <ActivityTab />}
-        {activeTab === 'EOA GEN'  && <EOAGenTab />}
+      <main style={{ flex: 1, padding: '20px', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+        {activeTab === 'WALLETS'   && <WalletsTab />}
+        {activeTab === 'SEND'      && <SendTab />}
+        {activeTab === 'ACTIVITY'  && <ActivityTab />}
+        {activeTab === 'EOA GEN'   && <EOAGenTab />}
+        {activeTab === 'CDP'       && <CDPDashboard />}
       </main>
 
       <footer style={{
@@ -29,7 +31,7 @@ export default function App() {
         color: 'var(--muted)',
         fontFamily: 'var(--font-mono)',
       }}>
-        <span>CDP WALLET // n0b0dy · project <span style={{ color: 'var(--border2)' }}>d6b3ae4e</span></span>
+        <span>CDP WALLET // n0b0dy · project <span>e6ae87c9</span></span>
         <span>smart wallet · EOA · 17 chains</span>
       </footer>
     </div>
