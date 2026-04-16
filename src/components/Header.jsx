@@ -32,7 +32,7 @@ export default function Header({ activeTab, setActiveTab }) {
   const mainChains = SUPPORTED_CHAINS.filter(c => !CHAIN_META[c.id]?.testnet)
   const testChains = SUPPORTED_CHAINS.filter(c => CHAIN_META[c.id]?.testnet)
 
-  const tabs = ['WALLETS', 'SEND', 'ACTIVITY', 'EOA GEN']
+  const const tabs = ['WALLETS', 'SEND', 'ACTIVITY', 'EOA GEN', 'CDP']
 
   return (
     <header style={{
